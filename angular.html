@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp2" ng-controller="displayCtrl">
+  <form novalidate ng-submit="display()">
+    Check to show a header:
+    <input type="checkbox" ng-model="myVar">
+    <input type="email" ng-model="myEmail">
+    <input type="submit" value="Submit">
+  </form>
+  <h1 ng-show="myVar">Email Id:={{myEmail}}</h1>
+  <p> <span ng-bind="output"></span>!</p>         
+</div>
+
+<p>The header's ng-show attribute is set to true when the checkbox is checked.</p>
+<script>
+var app2= angular.module("myApp2", []);
+app2.controller("displayCtrl", function($scope) {
+    
+            $scope.display=function(){
+                alert("Email"+$scope.myEmail);
+                $scope.output="Successfully Submitted!!!";
+            }
+        });
+</script>
+</body>
+</html>
